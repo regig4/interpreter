@@ -1,4 +1,4 @@
-use crate::{Lexer, TokenType};
+use crate::lexer::{Lexer, TokenType};
 
 #[test]
 fn lexer_test() {

@@ -1,4 +1,4 @@
-use crate::{Lexer, TokenType};
+use crate::lexer::{Lexer, TokenType};
 use std::io::{self, BufRead};
 
 const PROMPT: &str = ">>";
