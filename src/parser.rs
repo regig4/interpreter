@@ -24,10 +24,10 @@ impl Parser {
 
     fn nextToken(mut self) {
         self.currToken = self.peekToken;
-        self.peekToken = self.l.NextToken();
+        self.peekToken = self.l.next_token();
     }
 
-    fn parse_program() -> Option<ast::Program> {
+    pub fn parse_program(self) -> Option<ast::Program> {
         None
     }
 }

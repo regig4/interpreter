@@ -1,0 +1,12 @@
+xsettingsd: Loaded 4 settings from /home/bartek/.xsettingsd
+xsettingsd: Created window 0x500001 on screen 0 with timestamp 206685500
+xsettingsd: Selection _XSETTINGS_S0 is owned by 0x280001
+xsettingsd: Took ownership of selection _XSETTINGS_S0
+Another composite manager is already running
+output 0: size(1904, 993) pos(0, 0)
+Failed to connect to session manager: Failed to connect to the session manager: SESSION_MANAGER environment variable not defined
+
+(process:9640): GLib-CRITICAL **: 02:57:29.196: g_string_insert_len: assertion 'len == 0 || val != NULL' failed
+Failed to connect to session manager: Failed to connect to the session manager: SESSION_MANAGER environment variable not defined
+X connection to 172.23.32.1:0 broken (explicit kill or server shutdown).
+i3: Cannot open display

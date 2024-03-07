@@ -1,43 +1,51 @@
+use std::any::Any;
 use crate::lexer::Token;
 
-trait Node {
-    fn TokenLiteral() -> String;
+pub(crate) trait Node {
+    fn token_literal(&self) -> String;
 }
 
 pub(crate) trait Statement {
-    fn statementNode() -> impl Node;
+    fn statement_node(&self) -> Box<dyn Node>;
+    fn as_any(&self) -> &dyn Any;
 }
 
 trait Expression {
-    fn expressionNode() -> impl Node;
+    fn expression_node(&self) -> Box<dyn Node>;
 }
 
 pub(crate) struct Program {
-    statements: Vec<dyn Statement>
+    pub(crate) statements: Vec<Box<dyn Statement>>
 }
 
 impl Program {
     fn token_literal(self) -> String {
         if self.statements.len() > 0 {
-            return self.statements[0].TokenLiteral();
+            return self.statements[0].statement_node().token_literal();
         }
-        ""
+        "".to_string()
     }
 }
 
-struct LetStatement {
+pub struct LetStatement {
     token: Token,
-    name: *Identifier,
+    name: *mut Identifier,
     value: dyn Expression
 }
 
-impl LetStatement {
-    fn statement_node() {
-
+impl Statement for LetStatement {
+    fn statement_node(&self) -> Box<dyn Node> {
+        unimplemented!()
     }
 
-    fn token_literal(self) -> String {
-        self.token.Literal
+    fn as_any(&self) -> &dyn Any {
+       self
+    }
+}
+
+impl LetStatement {
+    fn token_literal(&self) -> String {
+        self.token.Literal.to_string()
     }
 }
 
