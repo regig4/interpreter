@@ -27,7 +27,7 @@ impl Parser {
         self.peekToken = self.l.next_token();
     }
 
-    pub fn parse_program(self) -> Option<ast::Program> {
+    pub fn parse_MyProgram(self) -> Option<ast::MyProgram> {
         None
     }
 }

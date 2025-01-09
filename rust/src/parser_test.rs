@@ -14,13 +14,13 @@ pub fn test_let_statements() {
     let l = Lexer::new(String::from(input));
     let p = Parser::new(l);
 
-    let program = p.parse_program();
+    let MyProgram = p.parse_MyProgram();
 
-    if program.is_none() {
-        panic!("parse_program() returned None");
+    if MyProgram.is_none() {
+        panic!("parse_MyProgram() returned None");
     }
-    if program.unwrap().statements.len() != 3 {
-        panic!("program.Statements does not contain 3 statements, got={}", program.unwrap().statements.len());
+    if MyProgram.unwrap().statements.len() != 3 {
+        panic!("MyProgram.Statements does not contain 3 statements, got={}", MyProgram.unwrap().statements.len());
     }
 
     let tests: [TestStruct;3] =
@@ -31,7 +31,7 @@ pub fn test_let_statements() {
     ];
 
     for (i, tt) in tests.iter().enumerate() {
-        let stmt = &program.unwrap().statements[i];
+        let stmt = &MyProgram.unwrap().statements[i];
         if !test_let_statement(stmt, &tt.expected_identifier) {
             return;
         }

@@ -14,11 +14,11 @@ trait Expression {
     fn expression_node(&self) -> Box<dyn Node>;
 }
 
-pub(crate) struct Program {
+pub(crate) struct MyProgram {
     pub(crate) statements: Vec<Box<dyn Statement>>
 }
 
-impl Program {
+impl MyProgram {
     fn token_literal(self) -> String {
         if self.statements.len() > 0 {
             return self.statements[0].statement_node().token_literal();
